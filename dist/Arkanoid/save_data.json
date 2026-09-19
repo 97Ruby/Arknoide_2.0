@@ -1,0 +1,14 @@
+{
+  "resolution": [
+    1024,
+    768
+  ],
+  "max_unlocked_level": 6,
+  "stars": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true
+  }
+}
