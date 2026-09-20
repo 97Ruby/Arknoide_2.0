@@ -1,4 +1,5 @@
-('C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid.exe',
+('C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid '
+ '2.0.exe',
  False,
  False,
  True,
@@ -29,7 +30,8 @@
  None,
  None,
  None,
- 'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid.pkg',
+ 'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid '
+ '2.0.pkg',
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\PYZ-00.pyz',
@@ -61,7 +63,7 @@
  [],
  False,
  False,
- 1789849319,
+ 1789869652,
  [('runw.exe',
    'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\.venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\runw.exe',
    'EXECUTABLE')],

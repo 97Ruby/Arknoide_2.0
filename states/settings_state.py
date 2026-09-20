@@ -14,6 +14,7 @@ class SettingsState(BaseState):
     def __init__(self, app):
         super().__init__(app)
         self.resolution_buttons = []
+        self.fullscreen_button = None
         self.back_button = None
         self._layout_buttons()
 
@@ -30,6 +31,10 @@ class SettingsState(BaseState):
             label = f"{rw} x {rh}"
             self.resolution_buttons.append(((rw, rh), Button(rect, label, font_size=20)))
 
+        toggle_width = 300
+        toggle_y = start_y + len(RESOLUTION_PRESETS) * (btn_height + gap) + 16
+        toggle_label = "TELA CHEIA: ATIVADA" if self.app.settings.get("fullscreen", False) else "TELA CHEIA: DESATIVADA"
+        self.fullscreen_button = Button((w // 2 - toggle_width // 2, toggle_y, toggle_width, btn_height), toggle_label, font_size=18)
         self.back_button = Button((24, h - 60, 120, 40), "VOLTAR", font_size=18)
 
     def on_enter(self):
@@ -42,6 +47,12 @@ class SettingsState(BaseState):
             sound_manager.play_sfx("button_click")
             self.app.change_state("menu")
             return
+        if self.fullscreen_button.is_clicked(event):
+            sound_manager.play_sfx("button_click")
+            next_fullscreen = not bool(self.app.settings.get("fullscreen", False))
+            self.app.apply_display_settings(fullscreen=next_fullscreen)
+            self._layout_buttons()
+            return
         for resolution, btn in self.resolution_buttons:
             if btn.is_clicked(event):
                 sound_manager.play_sfx("button_click")
@@ -52,6 +63,7 @@ class SettingsState(BaseState):
     def update(self, dt):
         mouse_pos = pygame.mouse.get_pos()
         self.back_button.update(mouse_pos)
+        self.fullscreen_button.update(mouse_pos)
         for _, btn in self.resolution_buttons:
             btn.update(mouse_pos)
 
@@ -69,4 +81,5 @@ class SettingsState(BaseState):
                 draw_text(surface, "(atual)", 14, (120, 255, 150),
                           center=(btn.rect.centerx, btn.rect.bottom + 14))
 
+        self.fullscreen_button.draw(surface)
         self.back_button.draw(surface)

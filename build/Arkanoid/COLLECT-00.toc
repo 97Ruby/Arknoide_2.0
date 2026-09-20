@@ -1,5 +1,6 @@
-([('Arkanoid.exe',
-   'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid.exe',
+([('Arkanoid 2.0.exe',
+   'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\build\\Arkanoid\\Arkanoid '
+   '2.0.exe',
    'EXECUTABLE'),
   ('SDL2.dll',
    'C:\\Users\\joice.celestino\\Repositorios\\Pygame\\.venv\\Lib\\site-packages\\pygame\\SDL2.dll',

@@ -4,3 +4,7 @@ env/
 
 __pycache__/
 *.py[cod]
+
+# Arquivos de save do jogo
+save_data.json
+*.save.json
