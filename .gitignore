@@ -5,6 +5,10 @@ env/
 __pycache__/
 *.py[cod]
 
+# Build e artefatos gerados
+build/
+dist/
+
 # Arquivos de save do jogo
 save_data.json
 *.save.json
