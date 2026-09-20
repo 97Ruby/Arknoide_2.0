@@ -77,11 +77,10 @@ GAME_TITLE = "ARKANOID 2.0"  # nome do jogo
 
 def load_save_data():
     """Carrega resolução escolhida e progresso de fases do disco.
-    Se o arquivo não existir (primeira execução) ou estiver corrompido,
-    devolve os valores padrão em vez de quebrar o jogo — preferi um
-    save "zerado" a uma quebra na inicialização."""
+    Se o arquivo não existir (primeira execução) ou estiver corrompido, devolve os valores padrão em vez de quebrar o jogo — preferi um save "zerado" a uma quebra na inicialização."""
     default = {
         "resolution": list(DEFAULT_RESOLUTION),
+        "fullscreen": False,
         "max_unlocked_level": 1,
         "stars": {},  # ex: {"1": 1} -> fase 1 já foi concluída
     }

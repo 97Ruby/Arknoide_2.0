@@ -39,8 +39,10 @@ class App:
         self.stars = self.settings["stars"]
 
         resolution = tuple(self.settings["resolution"])
+        fullscreen = bool(self.settings.get("fullscreen", False))
         pygame.display.set_caption(config.GAME_TITLE)
-        self.screen = pygame.display.set_mode(resolution)
+        flags = pygame.FULLSCREEN if fullscreen else 0
+        self.screen = pygame.display.set_mode(resolution, flags)
         self.starfield = Starfield(*resolution)
         self.clock = pygame.time.Clock()
 
@@ -71,9 +73,19 @@ class App:
         self._persist_settings()
 
     def apply_resolution(self, resolution):
-        self.screen = pygame.display.set_mode(resolution)
+        self.apply_display_settings(resolution=resolution)
+
+    def apply_display_settings(self, resolution=None, fullscreen=None):
+        if resolution is None:
+            resolution = tuple(self.settings["resolution"])
+        if fullscreen is None:
+            fullscreen = bool(self.settings.get("fullscreen", False))
+
+        flags = pygame.FULLSCREEN if fullscreen else 0
+        self.screen = pygame.display.set_mode(resolution, flags)
         self.starfield = Starfield(*resolution)
         self.settings["resolution"] = list(resolution)
+        self.settings["fullscreen"] = bool(fullscreen)
         self._persist_settings()
 
     def _persist_settings(self):
